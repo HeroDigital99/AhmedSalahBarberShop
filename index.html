@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ahmed Salah Barber Shop</title>
+  <meta name="description" content="Ahmed Salah Barber Shop - احجز موعدك وتابعنا على منصات التواصل">
+  <style>
+    @font-face { font-family:'Cairo'; src:url('fonts/Cairo-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Cairo'; src:url('fonts/Cairo-Bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Cairo'; src:url('fonts/Cairo-ExtraBold.ttf') format('truetype'); font-weight:800; font-style:normal; font-display:swap; }
+    :root { --gold:#d5a44e; --gold-light:#f4d58d; --ink:#0a0a0a; --cream:#f8edda; --line:#725428; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; overflow-x:hidden; font-family:'Cairo',Tahoma,sans-serif; color:var(--cream); background:linear-gradient(125deg,#050505,#171006 23%,#080808 46%,#1b0d13 69%,#050505 100%); background-size:400% 400%; animation:gradientMove 18s ease-in-out infinite; position:relative; }
+    body::before, body::after { content:""; position:fixed; z-index:-1; width:62vw; height:62vw; max-width:760px; max-height:760px; border-radius:50%; filter:blur(70px); opacity:.34; pointer-events:none; animation:aurora 15s ease-in-out infinite alternate; }
+    body::before { top:-24vw; right:-14vw; background:radial-gradient(circle,#d5a44e 0,#77521e 28%,transparent 68%); }
+    body::after { bottom:-28vw; left:-18vw; background:radial-gradient(circle,#8a5b1d 0,#33220b 34%,transparent 70%); animation-delay:-6s; animation-duration:19s; }
+    @keyframes aurora { 0% { transform:translate3d(-8px,-4px,0) scale(1); } 50% { transform:translate3d(38px,24px,0) scale(1.13); } 100% { transform:translate3d(-22px,45px,0) scale(.94); } }
+    @keyframes gradientMove { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
+    .page { width:min(520px,calc(100% - 28px)); margin:28px auto; }
+    .card { padding:28px 20px 24px; text-align:center; background:linear-gradient(145deg,rgba(22,19,14,.78),rgba(5,5,5,.72)); border:1px solid rgba(213,164,78,.58); border-radius:26px; box-shadow:0 22px 70px rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.08); backdrop-filter:blur(18px); }
+    .logo { display:block; width:190px; height:190px; margin:0 auto 20px; object-fit:cover; border-radius:50%; border:2px solid var(--gold); box-shadow:0 0 34px rgba(213,164,78,.28); transition:transform .5s ease,box-shadow .5s ease; }
+    .logo:hover { transform:scale(1.035) rotate(1deg); box-shadow:0 0 48px rgba(244,213,141,.45); }
+    .tagline { margin:13px 0 23px; color:#f5e0b7; font-size:21px; font-weight:700; line-height:1.8; text-shadow:0 2px 14px rgba(244,213,141,.2); }
+    .button { display:flex; align-items:center; justify-content:center; gap:12px; width:100%; min-height:58px; margin:12px 0; padding:12px 16px; border-radius:15px; text-decoration:none; font-weight:800; transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,background .35s ease,border-color .35s ease; position:relative; overflow:hidden; }
+    .button::after { content:""; position:absolute; inset:-80% 35% -80% -35%; background:linear-gradient(105deg,transparent,rgba(255,255,255,.18),transparent); transform:translateX(-120%) rotate(10deg); transition:transform .7s ease; pointer-events:none; }
+    .button:hover, .button:focus-visible { transform:translateY(-4px) scale(1.012); }
+    .button:hover::after, .button:focus-visible::after { transform:translateX(260%) rotate(10deg); }
+    .button img { width:27px; height:27px; object-fit:contain; padding:5px; border-radius:9px; transition:transform .35s ease,box-shadow .35s ease,background .35s ease; }
+    .button:hover img, .button:focus-visible img { transform:scale(1.25) rotate(-4deg); background:rgba(255,255,255,.15); box-shadow:0 0 0 1px rgba(255,255,255,.28),0 0 18px rgba(244,213,141,.55); }
+    .booking { color:#111; background:linear-gradient(135deg,#f6d990,#b77d25); box-shadow:0 9px 22px rgba(183,125,37,.25); }
+    .social { color:var(--cream); background:linear-gradient(135deg,rgba(23,23,23,.7),rgba(38,30,18,.62)); border:1px solid rgba(114,84,40,.8); backdrop-filter:blur(12px); }
+    .social.facebook:hover, .social.facebook:focus-visible { background:linear-gradient(135deg,#1877f2,#0754b8); border-color:#62a5ff; box-shadow:0 12px 28px rgba(24,119,242,.38); }
+    .social.instagram:hover, .social.instagram:focus-visible { background:linear-gradient(135deg,#833ab4,#fd1d1d 52%,#fcb045); border-color:#ff9d72; box-shadow:0 12px 28px rgba(225,48,108,.38); }
+    .social.tiktok:hover, .social.tiktok:focus-visible { background:linear-gradient(135deg,#111,#25f4ee 48%,#fe2c55); border-color:#25f4ee; box-shadow:0 12px 28px rgba(37,244,238,.28); }
+    .social.maps:hover, .social.maps:focus-visible { background:linear-gradient(135deg,#188038,#4285f4 52%,#fbbc04); border-color:#8bc34a; box-shadow:0 12px 28px rgba(66,133,244,.32); }
+    .payment { color:#261b0b; background:#f7f0e5; border:1px solid #d5a44e; }
+    .payment img { width:88px; height:42px; background:#fff; border-radius:6px; }
+    .payment small { display:block; margin-top:3px; direction:ltr; color:#65491f; }
+    .divider { height:1px; margin:23px 10px 18px; background:linear-gradient(90deg,transparent,var(--line),transparent); }
+    .footer { margin-top:20px; color:#9f8556; font-size:11px; }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <img class="logo" src="ahmed-salah-logo.png" alt="Ahmed Salah Barber Shop">
+      <p class="tagline">اعمل Scan وإحجز معادك دلوقتي</p>
+
+      <a class="button booking" href="https://wa.me/201277993218?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF" target="_blank" rel="noopener noreferrer">
+        <img src="social-icons/whatsapp-dark.svg" alt="">
+        احجز موعدك عبر واتساب
+      </a>
+
+      <a class="button payment" href="https://www.instapay.eg/?lang=ar" target="_blank" rel="noopener noreferrer">
+        <img src="instapay-logo.webp" alt="InstaPay">
+        <span>الدفع عبر InstaPay<small>01277993218</small></span>
+      </a>
+
+      <div class="divider"></div>
+
+      <a class="button social facebook" href="https://www.facebook.com/share/1Gz38REtJi/" target="_blank" rel="noopener noreferrer">
+        <img src="social-icons/facebook.svg" alt="">Facebook
+      </a>
+      <a class="button social instagram" href="https://www.instagram.com/ahmed_tito777999?exln=NHMxZzMxMHllN280" target="_blank" rel="noopener noreferrer">
+        <img src="social-icons/instagram.svg" alt="">Instagram
+      </a>
+      <a class="button social tiktok" href="https://www.tiktok.com/@ahmed.tito.7799?_r=1&_t=ZS-9BEciJjg3vC" target="_blank" rel="noopener noreferrer">
+        <img src="social-icons/tiktok.svg" alt="">TikTok
+      </a>
+      <a class="button social maps" href="https://maps.app.goo.gl/WmLgk7i3iE7Pq3g79?g_st=ac" target="_blank" rel="noopener noreferrer">
+        <img src="social-icons/googlemaps.svg" alt="">موقع المحل على Google Maps
+      </a>
+
+      <div class="footer">Ahmed Salah Barber Shop</div>
+    </section>
+  </main>
+</body>
+</html>
